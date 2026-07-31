@@ -15,6 +15,12 @@ The idea: separate *understanding*, *planning*, and *doing* into distinct phases
 
 Repeat steps 3–4 as many times as you like before moving to todos/implementation — the plan document is the single source of truth, and each phase only touches it or the codebase, never both at once.
 
+### Artifacts stay out of git automatically
+
+`research.md` and `plan.md` are scratch documents, not something you want to commit or manually gitignore per project. Both `/research` and `/plan` add themselves to the repo's `.git/info/exclude` on first run — git's built-in per-clone ignore list. It behaves like `.gitignore` but lives inside `.git/`, so it's never committed and never visible to collaborators, and it doesn't require a global gitignore rule that follows you into every repo.
+
+`/research` also deletes any existing `research.md` and `plan.md` before starting, so you never start a new research pass with a stale report (or a stale plan from an unrelated prior task) still sitting in the working tree. Since both files are git-excluded, this delete is **not** recoverable through git — if you want to keep a plan around, copy it out (or rename it) before running `/research` again.
+
 ### Bare vs. namespaced commands
 
 Plugin skills are always registered under a namespaced form, `/research-plan-feedback:research`. Claude Code also exposes the bare form (`/research`) as a shorthand automatically, as long as no other installed skill or command already claims that name. If a name collision ever comes up (another plugin also defining `/research`, say), fall back to the namespaced form to target this plugin's version explicitly.

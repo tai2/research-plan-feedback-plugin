@@ -9,6 +9,8 @@ allowed-tools: Read, Glob, Grep, Bash(git log:*), Bash(pnpm *), Edit, Write
 
 The project root is: !`git rev-parse --show-toplevel`
 
+!`excl="$(git rev-parse --git-path info/exclude)"; mkdir -p "$(dirname "$excl")"; touch "$excl"; grep -qxF research.md "$excl" || echo research.md >> "$excl"; grep -qxF plan.md "$excl" || echo plan.md >> "$excl"`
+
 Read `research.md` at the project root if it exists to build on prior research. Study the relevant parts of the codebase that relate to the following:
 
 $ARGUMENTS
