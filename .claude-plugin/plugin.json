@@ -1,0 +1,18 @@
+{
+  "name": "research-plan-feedback",
+  "displayName": "Research, Plan, Feedback",
+  "version": "1.0.0",
+  "description": "A research -> plan -> feedback -> todos -> implement workflow for Claude Code, inspired by Boris Tane's AI coding workflow.",
+  "author": {
+    "name": "tai2"
+  },
+  "homepage": "https://github.com/tai2/research-plan-feedback-plugin",
+  "repository": "https://github.com/tai2/research-plan-feedback-plugin",
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "planning",
+    "research",
+    "productivity"
+  ]
+}

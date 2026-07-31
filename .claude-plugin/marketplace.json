@@ -1,0 +1,14 @@
+{
+  "name": "research-plan-feedback",
+  "description": "A research -> plan -> feedback -> add-todos -> implement workflow for Claude Code.",
+  "owner": {
+    "name": "tai2"
+  },
+  "plugins": [
+    {
+      "name": "research-plan-feedback",
+      "source": ".",
+      "description": "A research -> plan -> feedback -> todos -> implement workflow for Claude Code."
+    }
+  ]
+}
