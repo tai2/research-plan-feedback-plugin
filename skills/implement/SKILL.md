@@ -1,7 +1,7 @@
 ---
 name: implement
 description: Execute an approved plan, marking tasks complete as each is finished
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash(pnpm *), Bash(git *)
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash(pnpm typecheck:*), Bash(git rev-parse:*), Bash(git status:*), Bash(git diff:*), Bash(git log:*)
 ---
 
 The project root is: !`git rev-parse --show-toplevel`

@@ -1,7 +1,7 @@
 {
   "name": "research-plan-feedback",
   "displayName": "Research, Plan, Feedback",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A research -> plan -> feedback -> todos -> implement workflow for Claude Code, inspired by Boris Tane's AI coding workflow.",
   "author": {
     "name": "tai2"
