@@ -3,12 +3,21 @@ name: research
 description: Deep-read a folder, module, or system and write a detailed report to research.md
 argument-hint: <subjects to study>
 context: fork
-allowed-tools: Read, Glob, Grep, Bash(git log:*), Bash(git blame:*), Edit, Write
+allowed-tools: Read, Glob, Grep, Edit, Write, Bash(git rev-parse:*), Bash(git log:*), Bash(git blame:*)
 ---
 
 The project root is: !`git rev-parse --show-toplevel`
 
-!`root="$(git rev-parse --show-toplevel)"; excl="$(git rev-parse --git-path info/exclude)"; mkdir -p "$(dirname "$excl")"; touch "$excl"; grep -qxF research.md "$excl" || echo research.md >> "$excl"; grep -qxF plan.md "$excl" || echo plan.md >> "$excl"; rm -f "$root/research.md" "$root/plan.md"; echo "Cleared stale research.md/plan.md from the previous cycle and ensured both stay out of git (.git/info/exclude)."`
+The git exclude file is: !`git rev-parse --path-format=absolute --git-path info/exclude`
+
+## Before you start
+
+Use the two paths above verbatim in anything you run — never a command whose target is a shell variable or a command substitution.
+
+1. Read the git exclude file. If it is missing a `research.md` or a `plan.md` line, add the missing one(s) and change nothing else (create the file if it does not exist). It lives under `.git/`, so this write is never pre-approved — expect to approve it once per repo.
+2. Delete a stale `research.md` and `plan.md` at the project root if they exist — leftovers from the previous cycle. Spell both paths out in full: `rm -f <project root>/research.md <project root>/plan.md`.
+
+## Research
 
 Read `$ARGUMENTS` in depth — understand how it works deeply, what it does, and all its specificities. Study the intricacies, go through everything, trace the full flow.
 

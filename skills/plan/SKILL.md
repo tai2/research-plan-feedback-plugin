@@ -4,12 +4,18 @@ description: Write a detailed implementation plan document in plans/ based on th
 argument-hint: <feature or change description>
 context: fork
 effort: high
-allowed-tools: Read, Glob, Grep, Bash(git log:*), Bash(pnpm *), Edit, Write
+allowed-tools: Read, Glob, Grep, Edit, Write, Bash(git rev-parse:*), Bash(git log:*)
 ---
 
 The project root is: !`git rev-parse --show-toplevel`
 
-!`excl="$(git rev-parse --git-path info/exclude)"; mkdir -p "$(dirname "$excl")"; touch "$excl"; grep -qxF research.md "$excl" || echo research.md >> "$excl"; grep -qxF plan.md "$excl" || echo plan.md >> "$excl"`
+The git exclude file is: !`git rev-parse --path-format=absolute --git-path info/exclude`
+
+## Before you start
+
+Read the git exclude file (path above, used verbatim). If it is missing a `research.md` or a `plan.md` line, add the missing one(s) and change nothing else (create the file if it does not exist). It lives under `.git/`, so this write is never pre-approved — expect to approve it once per repo.
+
+## Plan
 
 Read `research.md` at the project root if it exists to build on prior research. Study the relevant parts of the codebase that relate to the following:
 

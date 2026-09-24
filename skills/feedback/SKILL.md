@@ -2,7 +2,7 @@
 name: feedback
 description: Process developer's inline annotations in the plan document and update accordingly without implementing
 context: fork
-allowed-tools: Read, Glob, Grep, Edit
+allowed-tools: Read, Glob, Grep, Edit, Bash(git rev-parse:*)
 ---
 
 The project root is: !`git rev-parse --show-toplevel`

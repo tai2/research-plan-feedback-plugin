@@ -2,7 +2,7 @@
 name: add-todos
 description: Add a detailed todo checklist to the current plan with all phases and individual tasks
 context: fork
-allowed-tools: Read, Edit
+allowed-tools: Read, Edit, Bash(git rev-parse:*)
 ---
 
 The project root is: !`git rev-parse --show-toplevel`
